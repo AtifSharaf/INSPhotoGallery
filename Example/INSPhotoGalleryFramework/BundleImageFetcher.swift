@@ -8,21 +8,14 @@
 
 import UIKit
 
-
-
-extension Bundle {
-
-    static func getBundleImage(forName name: String) -> UIImage? {
-       
-        if let bundlePath =  Bundle.init(for: INSPhotosOverlayView.self).path(forResource: "INSPhotoGallery", ofType: "bundle") {
+public class INSBundleImageFetcher {
+    public static func getBundleImage(forName name: String) -> UIImage? {
+        if let bundlePath =  Bundle.init(for: INSBundleImageFetcher.self).path(forResource: "INSPhotoGallery", ofType: "bundle") {
             let bundle = Bundle(path: bundlePath)
             return  UIImage(named: name, in: bundle, compatibleWith: nil)
         } else {
             return nil
         }
     }
-
-
-    
 }
 

@@ -87,7 +87,7 @@ open class INSPhotoViewController: UIViewController, UIScrollViewDelegate {
             loadThumbnailImage()
         }
         
-        if photo.isPlayable, let playIcon = Bundle.getBundleImage(forName: "play-icon") {
+        if photo.isPlayable, let playIcon = INSBundleImageFetcher.getBundleImage(forName: "play-icon") {
             let imgView = UIImageView(image: playIcon)
             imgView.center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
             imgView.autoresizingMask = []
