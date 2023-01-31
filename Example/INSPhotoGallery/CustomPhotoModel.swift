@@ -13,6 +13,7 @@ import INSPhotoGalleryFramework
 class CustomPhotoModel: NSObject, INSPhotoViewable {
     var image: UIImage?
     var thumbnailImage: UIImage?
+    var isPlayable: Bool
     var isDeletable: Bool {
         return true
     }
@@ -28,19 +29,22 @@ class CustomPhotoModel: NSObject, INSPhotoViewable {
         #endif
     }
     
-    init(image: UIImage?, thumbnailImage: UIImage?) {
+    init(image: UIImage?, thumbnailImage: UIImage?, isPlayable: Bool = false) {
         self.image = image
         self.thumbnailImage = thumbnailImage
+        self.isPlayable = isPlayable
     }
     
-    init(imageURL: URL?, thumbnailImageURL: URL?) {
+    init(imageURL: URL?, thumbnailImageURL: URL?, isPlayable: Bool = false) {
         self.imageURL = imageURL
         self.thumbnailImageURL = thumbnailImageURL
+        self.isPlayable = isPlayable
     }
     
-    init (imageURL: URL?, thumbnailImage: UIImage) {
+    init (imageURL: URL?, thumbnailImage: UIImage, isPlayable: Bool = false) {
         self.imageURL = imageURL
         self.thumbnailImage = thumbnailImage
+        self.isPlayable = isPlayable
     }
     
     func loadImageWithCompletionHandler(_ completion: @escaping (_ image: UIImage?, _ error: Error?) -> ()) {

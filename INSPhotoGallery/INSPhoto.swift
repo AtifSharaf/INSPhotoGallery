@@ -23,9 +23,10 @@ import UIKit
  * This is marked as @objc because of Swift bug http://stackoverflow.com/questions/30100787/fatal-error-array-cannot-be-bridged-from-objective-c-why-are-you-even-trying when passing for example [INSPhoto] array
  * to INSPhotosViewController
  */
-@objc public protocol INSPhotoViewable: class {
+@objc public protocol INSPhotoViewable: AnyObject {
     var image: UIImage? { get }
     var thumbnailImage: UIImage? { get }
+    var isPlayable: Bool {get}
     @objc optional var isDeletable: Bool { get }
     
     func loadImageWithCompletionHandler(_ completion: @escaping (_ image: UIImage?, _ error: Error?) -> ())
@@ -38,28 +39,32 @@ import UIKit
     @objc open var image: UIImage?
     @objc open var thumbnailImage: UIImage?
     @objc open var isDeletable: Bool
+    @objc open var isPlayable: Bool
     
     var imageURL: URL?
     var thumbnailImageURL: URL?
     
     @objc open var attributedTitle: NSAttributedString?
     
-    public init(image: UIImage?, thumbnailImage: UIImage?) {
+    public init(image: UIImage?, thumbnailImage: UIImage?, isPlayable: Bool = false) {
         self.image = image
         self.thumbnailImage = thumbnailImage
         self.isDeletable = false
+        self.isPlayable = isPlayable
     }
     
-    public init(imageURL: URL?, thumbnailImageURL: URL?) {
+    public init(imageURL: URL?, thumbnailImageURL: URL?, isPlayable: Bool = false) {
         self.imageURL = imageURL
         self.thumbnailImageURL = thumbnailImageURL
         self.isDeletable = false
+        self.isPlayable = false
     }
     
-    public init (imageURL: URL?, thumbnailImage: UIImage?) {
+    public init (imageURL: URL?, thumbnailImage: UIImage?, isPlayable: Bool = false) {
         self.imageURL = imageURL
         self.thumbnailImage = thumbnailImage
         self.isDeletable = false
+        self.isPlayable = isPlayable
     }
     
     @objc open func loadImageWithCompletionHandler(_ completion: @escaping (_ image: UIImage?, _ error: Error?) -> ()) {

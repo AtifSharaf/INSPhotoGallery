@@ -24,6 +24,8 @@ open class INSPhotoViewController: UIViewController, UIScrollViewDelegate {
     
     var longPressGestureHandler: ((UILongPressGestureRecognizer) -> ())?
     
+    var playIcon: UIImageView?
+    
     lazy private(set) var scalingImageView: INSScalingImageView = {
         return INSScalingImageView()
     }()
@@ -83,6 +85,15 @@ open class INSPhotoViewController: UIViewController, UIScrollViewDelegate {
             loadFullSizeImage()
         } else {
             loadThumbnailImage()
+        }
+        
+        if photo.isPlayable, let playIcon = Bundle.getBundleImage(forName: "play-icon") {
+            let imgView = UIImageView(image: playIcon)
+            imgView.center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+            imgView.autoresizingMask = []
+            view.addSubview(imgView)
+            imgView.sizeToFit()
+            self.playIcon = imgView
         }
 
     }

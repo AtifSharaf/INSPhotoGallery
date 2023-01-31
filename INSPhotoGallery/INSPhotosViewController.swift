@@ -24,7 +24,7 @@ public typealias INSPhotosViewControllerNavigateToPhotoHandler = (_ photo: INSPh
 public typealias INSPhotosViewControllerDismissHandler = (_ viewController: INSPhotosViewController) -> ()
 public typealias INSPhotosViewControllerLongPressHandler = (_ photo: INSPhotoViewable, _ gestureRecognizer: UILongPressGestureRecognizer) -> (Bool)
 public typealias INSPhotosViewControllerDeletePhotoHandler = (_ photo: INSPhotoViewable) -> ()
-
+public typealias INSPhotosViewControllerPlayableItemHandler = (_ photo: INSPhotoViewable) -> ()
 
 open class INSPhotosViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIViewControllerTransitioningDelegate {
     
@@ -57,6 +57,8 @@ open class INSPhotosViewController: UIViewController, UIPageViewControllerDataSo
      * Called when delete is tapped on a photo
      */
     open var deletePhotoHandler: INSPhotosViewControllerDeletePhotoHandler?
+    
+    open var playableItemSelctionHandler: INSPhotosViewControllerPlayableItemHandler?
     
     /*
      * The overlay view displayed over photos, can be changed but must implement INSPhotosOverlayViewable
@@ -319,7 +321,11 @@ open class INSPhotosViewController: UIViewController, UIPageViewControllerDataSo
     }
     
     @objc private func handleSingleTapGestureRecognizer(_ gestureRecognizer: UITapGestureRecognizer) {
-        overlayView.setHidden(!overlayView.view().isHidden, animated: true)
+        if let photo = currentPhoto, photo.isPlayable {
+            playableItemSelctionHandler?(photo)
+        }else {
+            overlayView.setHidden(!overlayView.view().isHidden, animated: true)
+        }
     }
     
     // MARK: - Target Actions
