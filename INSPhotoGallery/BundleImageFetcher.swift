@@ -10,11 +10,12 @@ import UIKit
 
 public class INSBundleImageFetcher {
     public static func getBundleImage(forName name: String) -> UIImage? {
-        if let bundlePath =  Bundle.init(for: INSBundleImageFetcher.self).path(forResource: "INSPhotoGallery", ofType: "bundle") {
+        let frameworkBudle = Bundle.init(for: INSBundleImageFetcher.self)
+        if let bundlePath = frameworkBudle.path(forResource: "INSPhotoGallery", ofType: "bundle") {
             let bundle = Bundle(path: bundlePath)
             return  UIImage(named: name, in: bundle, compatibleWith: nil)
-        } else {
-            return nil
+        } else{
+            return UIImage(named: name)
         }
     }
 }
