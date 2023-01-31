@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "INSPhotoGallery",    
     platforms: [
-      .iOS(.v8)
+      .iOS(.v12)
     ],
     products: [        
         .library(name: "INSPhotoGallery", targets: ["INSPhotoGallery"]),
