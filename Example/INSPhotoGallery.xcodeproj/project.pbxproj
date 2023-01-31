@@ -31,7 +31,7 @@
 		D2EF36201CB299CF00033131 /* CustomOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2EF361F1CB299CF00033131 /* CustomOverlayView.xib */; };
 		D2EF36221CB29C6600033131 /* CustomPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EF36211CB29C6600033131 /* CustomPhotoModel.swift */; };
 		D2EF36241CB2A67800033131 /* CustomModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EF36231CB2A67800033131 /* CustomModelViewController.swift */; };
-		E993EBC32988EC6F002FEE77 /* BundleImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E993EBC22988EC6F002FEE77 /* BundleImageFetcher.swift */; };
+		E993EBCA2988F7CF002FEE77 /* BundleImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E993EBC92988F7CF002FEE77 /* BundleImageFetcher.swift */; };
 		FB44620B1AE393EEB9BC3649 /* Pods_INSPhotoGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 043F1D6415A9A5BC7A90DF71 /* Pods_INSPhotoGallery.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,7 +90,7 @@
 		D2EF361F1CB299CF00033131 /* CustomOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomOverlayView.xib; sourceTree = "<group>"; };
 		D2EF36211CB29C6600033131 /* CustomPhotoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPhotoModel.swift; sourceTree = "<group>"; };
 		D2EF36231CB2A67800033131 /* CustomModelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomModelViewController.swift; sourceTree = "<group>"; };
-		E993EBC22988EC6F002FEE77 /* BundleImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleImageFetcher.swift; sourceTree = "<group>"; };
+		E993EBC92988F7CF002FEE77 /* BundleImageFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BundleImageFetcher.swift; path = ../../INSPhotoGallery/BundleImageFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +120,7 @@
 				642427341CDE10970037E8DA /* INSPhotoGallery.bundle */,
 				642427351CDE10970037E8DA /* INSPhotosDataSource.swift */,
 				642427361CDE10970037E8DA /* INSPhotosInteractionAnimator.swift */,
+				E993EBC92988F7CF002FEE77 /* BundleImageFetcher.swift */,
 				642427371CDE10970037E8DA /* INSPhotosOverlayView.swift */,
 				642427381CDE10970037E8DA /* INSPhotosTransitionAnimator.swift */,
 				642427391CDE10970037E8DA /* INSPhotosViewController.swift */,
@@ -128,7 +129,6 @@
 				6424273C1CDE10970037E8DA /* UIVIew+INSPhotoViewer.swift */,
 				642427281CDE10750037E8DA /* INSPhotoGalleryFramework.h */,
 				6424272A1CDE10750037E8DA /* Info.plist */,
-				E993EBC22988EC6F002FEE77 /* BundleImageFetcher.swift */,
 			);
 			path = INSPhotoGalleryFramework;
 			sourceTree = "<group>";
@@ -368,7 +368,7 @@
 				642427461CDE10970037E8DA /* UIVIew+INSPhotoViewer.swift in Sources */,
 				6424273F1CDE10970037E8DA /* INSPhotosDataSource.swift in Sources */,
 				6424273D1CDE10970037E8DA /* INSPhoto.swift in Sources */,
-				E993EBC32988EC6F002FEE77 /* BundleImageFetcher.swift in Sources */,
+				E993EBCA2988F7CF002FEE77 /* BundleImageFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
