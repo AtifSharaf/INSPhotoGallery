@@ -249,7 +249,11 @@ open class INSPhotosViewController: UIViewController, UIPageViewControllerDataSo
     private func updateCurrentPhotosInformation() {
         if let currentPhoto = currentPhoto {
             overlayView.populateWithPhoto(currentPhoto)
+            if currentPhoto.isPlayable {
+                self.overlayView.setHidden(false, animated: true)
+            }
         }
+        
     }
 
     // MARK: - Helper methods

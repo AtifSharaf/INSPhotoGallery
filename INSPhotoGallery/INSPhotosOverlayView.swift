@@ -176,12 +176,12 @@ open class INSPhotosOverlayView: UIView , INSPhotosOverlayViewable {
         let horizontalPositionConstraint = NSLayoutConstraint(item: navigationBar!, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1.0, constant: 0.0)
         self.addConstraints([topConstraint,widthConstraint,horizontalPositionConstraint])
         
-        if let bundlePath = Bundle(for: type(of: self)).path(forResource: "INSPhotoGallery", ofType: "bundle") {
-            let bundle = Bundle(path: bundlePath)
-            leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "INSPhotoGalleryClose", in: bundle, compatibleWith: nil), landscapeImagePhone: UIImage(named: "INSPhotoGalleryCloseLandscape", in: bundle, compatibleWith: nil), style: .plain, target: self, action: #selector(INSPhotosOverlayView.closeButtonTapped(_:)))
-        } else {
+        if let closeImg = INSBundleImageFetcher.getBundleImage(forName: "INSPhotoGalleryClose") {
+            leftBarButtonItem = UIBarButtonItem(image: closeImg, landscapeImagePhone: INSBundleImageFetcher.getBundleImage(forName: "INSPhotoGalleryCloseLandscape"), style: .plain, target: self, action: #selector(INSPhotosOverlayView.closeButtonTapped(_:)))
+        }else {
             leftBarButtonItem = UIBarButtonItem(title: "CLOSE".uppercased(), style: .plain, target: self, action: #selector(INSPhotosOverlayView.closeButtonTapped(_:)))
         }
+        
         
         rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(INSPhotosOverlayView.actionButtonTapped(_:)))
     }
